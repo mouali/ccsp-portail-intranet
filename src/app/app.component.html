@@ -1,3 +1,100 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <a class="navbar-brand" href=""><img src="content/images/marianne.png"></a>
+      <p class="navbar-text">Commission du contentieux du stationnement payant</p>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">David Tenant <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+
+ <div class="container">  
+ 
+ 
+<md-tab-group>
+  <md-tab label="Dossier">
+    <h1>Liste des dossiers</h1>
+    <p></p>
+  </md-tab>
+  <md-tab label="Plis">
+    <h1>Liste des plis</h1>
+     <input class="form-control" [(ngModel)]="filterQuery"/>
+    <table class="table table-condensed" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+    <tr>
+        <th style="width: 10%">
+            <mfDefaultSorter by="name">Canal d’origine</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="name">Date de réception </mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="name">Emetteur du pli</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="name">Etat du pli</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="name">Catégorie du pli</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="name">Liste des types de documents</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="name">Alerte de cloture</mfDefaultSorter>
+        </th>
+        <th style="width: 5%">
+            <mfDefaultSorter by="name"> N° du dossier</mfDefaultSorter>
+        </th>
+        
+    </tr>
+    <tr>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of mf.data">
+        <td>{{item.name}}</td>
+        <td>{{item.email}}</td>
+        <td class="text-center">{{item.age}}</td>
+        <td>{{item.city | uppercase}}</td>
+        <td>{{item.city | uppercase}}</td>
+        <td>{{item.city | uppercase}}</td>
+        <td>{{item.city | uppercase}}</td>
+        <td>{{item.city | uppercase}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="8">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>
+  </md-tab>
+</md-tab-group>
+</div>
+
+  <div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <p class="navbar-text pull-left"> 2017 My Footer
+      </p>
+    </div>
+  </div>
